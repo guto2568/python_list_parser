@@ -5,17 +5,19 @@
   #include <stdlib.h>
 void yyerror(char *c);
 int yylex(void);
-int OK = 1;
+int OK = 1;/*Define se houve ou nao erro de sintaxe*/
 %}
 
 %%
 
+   /*Lista*/
 List:
   '[' CommaSeparatedElement ']'
   |
-  '[' ']'
+  '[' ']'/*Lista vazia*/
   ;
 
+  /*Um ou mais elementos validos, separados por virgula*/
 CommaSeparatedElement:
   ELEMENT
   | CommaSeparatedElement ',' CommaSeparatedElement
